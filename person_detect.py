@@ -5,7 +5,6 @@ faceCascade_default = cv2.CascadeClassifier(face_default)
 video_capture = cv2.VideoCapture(0)
 
 anterior1 = 0
-cnt1 = 0
 
 CAPTURED_FRAME = 0
 
@@ -31,13 +30,9 @@ while CAPTURED_FRAME < 10:
 
     if anterior1 != len(faces1):
         anterior1 = len(faces1)
-        cnt1 = cnt1 + 1
+        CAPTURED_FRAME += 1
 
-        if cnt1 > 1:
-            print("-------------face detected by default!")
-            CAPTURED_FRAME += 1
-            cnt1 = 0
-
+print('========FACE RECOGNITION COMPLETE========')  # DEBUG
 # When everything is done, release the capture
 # TODO change this with server-send code: Integrate with total recognition
 video_capture.release()
